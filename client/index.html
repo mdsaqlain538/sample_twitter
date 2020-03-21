@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="title">
+        <h3>Twitter Application</h3>
+    </header>
+    <main>
+        <form class="tweet-form">
+            <label for="username">User Name</label>
+            <input class="u-full-width" type="text" id="username" name="username" required>
+            <label for="tweet">Tweet</label>
+            <textarea class="u-full-width" type="text" id="content" name="content" required></textarea>
+            <button class="button">Upload Your Tweet</button>
+        </form>
+        <div class="loading">
+            <img src="loading.gif" alt="">
+        </div>
+        <div class="tweets">
+            
+        </div>
+    </main>
+    <script src="client.js"></script>
+</body>
+</html>
