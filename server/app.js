@@ -3,6 +3,11 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 var port = process.env.PORT || 3000;
 
+let http = require('http');
+let fs = require('fs');
+const path = require('path');
+const router = express.Router();
+
 const mc = require('mongodb').MongoClient;
 
 const URL ="mongodb+srv://Twitter:msp15nk19@cluster0-kbyvm.mongodb.net/test?retryWrites=true&w=majority";
@@ -17,20 +22,17 @@ mc.connect(URL,{useUnifiedTopology:true,useNewUrlParser:true},(error,client)=>{
         console.log("DataBase Sucessfully connected....");
     }
 });
-
 const app = express();
+app.get('/',(req,res)=>{
+    res.send({'message':'saqlain'});
+});
+
 app.use(cors());
 app.use(express.json());
 app.use(rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 1000
 }));
-
-app.get('/',(req,res)=>{
-    res.json({
-        'Message':'salman-patel'
-    });
-});
 
 app.post('/tweet',(req,res)=>{
     //console.log(req.body);
